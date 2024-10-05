@@ -7,8 +7,8 @@ def buildartifact()
   {
    sh "mvn package"
   }
-def delivery(jobname,ip,context)
+def delivery(jobname,ip,appname)
 {
-  sh " scp /var/lib/jenkins/workspace/${jobname}/target/webapp.war ubuntu@${ip}:/var/lib/tomcat10/webapps/${context}.war"
+  sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war   ubuntu@${ip}:/var/lib/tomcat9/webapps/${appname}.war"
 }
 
